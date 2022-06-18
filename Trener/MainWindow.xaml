@@ -1,0 +1,28 @@
+﻿<Window x:Class="Trener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trener" 
+        xmlns:views="clr-namespace:Trener.Views"
+        xmlns:vms="clr-namespace:Trener.ViewModels"
+        mc:Ignorable="d"
+        Title="Trener" 
+        Height="450" 
+        Width="800"
+        FontSize="14">
+    <Grid Margin="20 10">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:TrainingListViewModel}">
+                <views:TrainingListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:MakeSessionViewModel}">
+                <views:NewSession />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:RunnerViewModel}">
+                <views:UpdateRunner />
+            </DataTemplate>
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>
